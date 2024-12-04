@@ -1,0 +1,42 @@
+---
+version: "3.9"
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    restart: always
+    user: 1027:100
+    volumes:
+      - /volume1/docker/jellyfin/config:/config:rw
+      - /volume1/docker/jellyfin/cache:/cache:rw
+      - /volume1/media:/media:rw    
+    environment:
+      - PUID=1027
+      - PGID=100
+      - TZ=Europe/Madrid
+      - JELLYFIN_DATA_DIR=/config
+      - JELLYFIN_CACHE_DIR=/cache
+      - JELLYFIN_CONFIG_DIR=/config/config
+      - JELLYFIN_LOG_DIR=/config/log
+      - JELLYFIN_WEB_DIR=/jellyfin/jellyfin-web
+      - JELLYFIN_FFMPEG=/usr/lib/jellyfin-ffmpeg/ffmpeg
+      - XDG_CACHE_HOME=/cache
+      - LC_ALL=en_US.UTF-8
+      - LANG=en_US.UTF-8
+      - LANGUAGE=en_US:en
+    ports:
+      - 8086:8086/tcp
+    healthcheck:
+      test: curl --fail http://localhost:8096/health || exit 1
+      interval: 45s
+      timeout: 30s
+      retries: 3
+    deploy:
+        resources:
+            limits:
+                memory: 2048M
+            reservations:
+                memory: 256M
+
+networks:
+  jellyfin:
