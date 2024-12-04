@@ -1,6 +1,8 @@
 [![GitHub Release](https://img.shields.io/github/v/release/linuxserver/docker-jellyfin.svg?color=7871ca&labelColor=a160c4&logoColor=ffffff&style=for-the-badge&logo=jellyfin)](https://github.com/linuxserver/docker-jellyfin/releases)
 
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6bd41850-df81-4184-8102-a1d2df8373aa" width="300" title="logo_jf">
+</p>
 
 ### Requeriments
 - Service docker running
@@ -22,6 +24,7 @@
 | Synology | ✅ |
 | QNAP | ✅ |
 | Asustor | ✅ |
+
 
 ### Install Docker (Skip this step if you are using one of the NAS mentioned above.)
     sudo update && sudo apt upgrade -y
@@ -62,8 +65,9 @@
 
 ### Output
     $ docker ps -a
-    CONTAINER ID   IMAGE                                          COMMAND                  CREATED       STATUS                  PORTS                      NAMES
-3cb4d0ec5b2c   jellyfin/jellyfin:latest                     "/jellyfin/jelly…"   7 days ago    Up 18 hours (healthy)                              jellyfin
+    CONTAINER ID   IMAGE                         COMMAND                CREATED       STATUS                    PORTS                  NAMES
+    3cb4d0ec5b2c   jellyfin/jellyfin:latest     "/jellyfin/jelly…"    7 days ago    Up 18 hours (healthy)                              jellyfin
+
 
 ### Download App
 <a href="https://play.google.com/store/apps/details?id=org.jellyfin.mobile"><img src="https://lh3.googleusercontent.com/q1k2l5CwMV31JdDXcpN4Ey7O43PxnjAuZBTmcHEwQxVuv_2wCE2gAAQMWxwNUC2FYEOnYgFPOpw6kmHJWuEGeIBLTj9CuxcOEeU8UXyzWJq4NJM3lg=s0" width="130px"></a>  <a href="https://apps.apple.com/us/app/jellyfin-mobile/id1480192618"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/640px-Download_on_the_App_Store_Badge.svg.png" width="130px"></a>
