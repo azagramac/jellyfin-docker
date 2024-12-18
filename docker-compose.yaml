@@ -1,5 +1,4 @@
 ---
-version: "3.9"
 services:
   jellyfin:
     image: jellyfin/jellyfin:latest
@@ -25,7 +24,9 @@ services:
       - LANG=en_US.UTF-8
       - LANGUAGE=en_US:en
     ports:
-      - 8086:8086/tcp
+      - 8096:8096/tcp
+      - 8920:8920/tcp
+      - 7359:7359/udp
     healthcheck:
       test: curl --fail http://localhost:8096/health || exit 1
       interval: 45s
@@ -37,6 +38,5 @@ services:
                 memory: 2048M
             reservations:
                 memory: 256M
-
 networks:
   jellyfin:
